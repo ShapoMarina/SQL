@@ -40,16 +40,16 @@ public class LoginTest {
     void shouldErrorMessageWhenEnteringRandomPasswordRegisteredUser() {
         var loginPage = open("http://localhost:9999", LoginPage.class);
         var firstLoginData = DataHelper.getInvalidRandomUser();
-        loginPage.validLogin(firstLoginData);
-        loginPage.passwordCleaning();
+        loginPage.login(firstLoginData);
+        loginPage.cleaningFields();
 
         var secondLoginData = DataHelper.getInvalidRandomUser();
-        loginPage.validLogin(secondLoginData);
-        loginPage.passwordCleaning();
+        loginPage.login(secondLoginData);
+        loginPage.cleaningFields();
 
         var thirdLoginData = DataHelper.getInvalidRandomUser();
-        loginPage.validLogin(thirdLoginData);
-        loginPage.passwordCleaning();
+        loginPage.login(thirdLoginData);
+        loginPage.cleaningFields();
 
         var loginData = DataHelper.getValidAuthInfo();
         loginPage.validLogin(loginData);

@@ -24,7 +24,14 @@ public class LoginPage {
         errorNotification.shouldBe(visible);
     }
 
-    public void passwordCleaning() {
+    public void cleaningFields() {
+        LoginField.sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
         passwordField.sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
+    }
+
+    public void login(DataHelper.AuthInfo info) {
+        LoginField.setValue(info.getLogin());
+        passwordField.setValue(info.getPassword());
+        LoginButton.click();
     }
 }
